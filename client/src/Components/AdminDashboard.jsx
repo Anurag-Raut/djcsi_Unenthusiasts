@@ -1,4 +1,5 @@
 import React from "react";
+import { EventsForm } from "./AdminDashboard/EventsForm";
 import { SchemeForm } from "./AdminDashboard/SchemeForm";
 
 export const AdminDashboard = () => {
@@ -70,7 +71,7 @@ export const AdminDashboard = () => {
                       </tbody>
                   </table>
                 </div>
-                <button className="flex-none p-5 border"><SchemeForm/></button>
+                <button className="flex-none p-5 border"><EventsForm/></button>
             </div>
             <div className="h-full basis-1/4 flex flex-col rounded shadow-md shadow-gray-700 ">
                 <p className="p-3 flex-none text-lg font-semibold">Schemes</p>

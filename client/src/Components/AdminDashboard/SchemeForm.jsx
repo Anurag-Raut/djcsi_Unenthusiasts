@@ -17,19 +17,18 @@ export const SchemeForm = () => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  const openModal=()=> {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
-  const afterOpenModal=()=> {
+  const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
+    subtitle.style.color = "#f00";
+  };
 
-  const closeModal=()=> {
+  const closeModal = () => {
     setIsOpen(false);
-  }
-
+  };
 
   return (
     <div>
@@ -63,10 +62,9 @@ export const SchemeForm = () => {
               placeholder={"Service 1"}
               required
               className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              
             />
           </div>
-          
+
           <div className="flex flex-row-reverse justify-around items-center p-2">
             <button
               type="submit"
@@ -85,5 +83,5 @@ export const SchemeForm = () => {
         </form>
       </Modal>
     </div>
-  )
+  );
 };
