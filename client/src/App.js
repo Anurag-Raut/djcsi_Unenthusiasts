@@ -5,6 +5,7 @@ import { Signup } from "./Components/Account/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Ordering } from "./Components/Home/Ordering";
 import { Bill } from "./Components/Bill";
+import { Leaderboard } from "./Components/Leaderboard";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route element={<Signup />} exact path="/signup" />
           <Route element={<Ordering />} exact path="/ordering" />
           <Route element={<Bill />} exact path="/bill" />
+          <Route element={<Leaderboard />} exact path="/leaderboard" />
         </Routes>
       </h1>
     </Router>
