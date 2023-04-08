@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const Wallet = () => {
   return (
     <div>
-      <div class="max-w-sm p-6  border rounded-lg shadow-lg bg-gray-800 border-gray-700 relative">
+      <div class="max-w-sm p-6  border rounded-lg shadow-lg bg-[#6d756e] border-[] relative">
         <a href="#">
           <h5 class="mb-2 text-2xl font-bold tracking-tight  text-white">
             Noteworthy technology acquisitions 2021
@@ -15,7 +15,7 @@ export const Wallet = () => {
         </p>
         <a
           href="#"
-          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg  focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg bg-blue-600 hover:bg-blue-700"
         >
           Read more
           <svg
