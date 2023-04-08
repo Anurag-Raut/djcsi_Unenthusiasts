@@ -9,7 +9,6 @@ import Temp from "./Components/temp";
 import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 import Profile from "./Components/Profile";
-
 function App() {
   return (
     <Router>
@@ -24,6 +23,7 @@ function App() {
           <Route element={<Leaderboard />} exact path="/leaderboard/:cat" />
           <Route element={<AdminDashboard />} exact path="/admin" />
           <Route element={<Profile />} exact path="/profile" />
+          <Route element={<Temp />} exact path="/temp" />
         </Routes>
       </h1>
     </Router>
