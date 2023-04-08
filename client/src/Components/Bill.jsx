@@ -1,33 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row } from "./Bill/Row";
+import { app, database, storage } from '../firebaseConfig'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { collection, addDoc, getDocs, doc, updateDoc,getDoc, deleteDoc, setDoc, onSnapshot, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { async } from '@firebase/util'
 
 export const Bill = () => {
-  const billItems = [
-    {
-      id: 1,
-      name: "Coffee1",
-      price: 250,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Coffee2",
-      price: 200,
-      quantity: 2,
-    },
+  const [items, setitems] = useState([])
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const [billItems, setbillItems] = useState([])
 
-    {
-      id: 3,
-      name: "Coffee3",
-      price: 200,
-      quantity: 4,
-    },
-  ];
+  useEffect(() => {
+    getCartitems();
+  }, [])
 
-  const totalBill = billItems.reduce(
+  const getCartitems = async() => {
+    
+    const docRef = doc(database, "users", user.uid);
+    const docSnapshot = await getDoc(docRef);
+    console.log(docSnapshot.data().cart);
+    setbillItems(docSnapshot.data());
+
+    // for(const item in billItems) {
+    //   console.log(item + ": " + billItems[item].quantity)
+    //   items.push(item)
+    // }
+
+    // (items)
+
+    const items1=(Object.entries(docSnapshot.data().cart).map(([name, {quantity,price}]) => ({name, quantity,price})));
+    console.log(items1);
+    setitems(items1)
+    
+  }
+
+
+  // const billItems = [
+  //   {
+  //     id: 1,
+  //     name: "Coffee1",
+  //     price: 250,
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Coffee2",
+  //     price: 200,
+  //     quantity: 2,
+  //   },
+
+  //   {
+  //     id: 3,
+  //     name: "Coffee3",
+  //     price: 200,
+  //     quantity: 4,
+  //   },
+  // ];
+  const total = items.reduce(
     (acc, billItem) => acc + billItem.price * billItem.quantity,
     0
   );
+
 
   return (
     <div className="flex min-h-screen flex-col justify-center items-center gap-5">
@@ -35,13 +70,19 @@ export const Bill = () => {
         <h1 className="px-5 w-screen font-semibold font text-3xl">ETTARRA</h1>
         <div className="px-5 w-screen">
           <div className="bg-white shadow-xl rounded-xl">
-            {billItems.map((billItem) => (
+            
+            {
+            items.map((billItem) => (
+              
               <Row
                 name={billItem.name}
                 quantity={billItem.quantity}
                 price={billItem.price}
               />
             ))}
+            
+
+            
             <div className="flex w-full justify-between items-center">
               <p className="font-semibold text-gray-600 border-y w-full p-3">
                 + Add more items
@@ -80,7 +121,7 @@ export const Bill = () => {
                 Item Total
               </p>
               <p className="p-3">
-                ₹{totalBill}
+                ₹{total}
               </p>
             </div>
             <div className="flex w-full justify-between border-b-2 border-gray-300 border-dotted items-center">
@@ -88,7 +129,7 @@ export const Bill = () => {
                 Govt Taxes & Other Charges
               </p>
               <p className="p-3">
-                ₹{totalBill/10}
+                ₹{total / 10}
               </p>
             </div>
             <div className="flex w-full justify-between  items-center">
@@ -96,7 +137,7 @@ export const Bill = () => {
                 To Pay
               </p>
               <p className="p-3">
-                ₹{totalBill + totalBill/10}
+                ₹{total + total / 10}
               </p>
             </div>
           </div>

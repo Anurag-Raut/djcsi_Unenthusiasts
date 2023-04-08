@@ -24,6 +24,7 @@ export const Card = ({ item }) => {
 
     updateDoc(doc(database, "users", user.uid), {
       [`cart.${item.name}.quantity`]: count+1,
+      [`cart.${item.name}.price`]: item.price1,
     });
   };
 

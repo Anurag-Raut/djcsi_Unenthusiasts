@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { useNavigate } from 'react-router';
 
 export const Navbar = () => {
+  const nav=useNavigate()
   const auth = getAuth();
   const user = auth.currentUser;
   return (
@@ -13,7 +15,7 @@ export const Navbar = () => {
 
         <div className='flex items-center gap-5'>
           {/* <button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>Support</button> */}
-          <a href="/"><button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>{user?.displayName||"Profile"}</button></a>
+          <button onClick={()=>nav("/bill")} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>{user?.displayName||"Profile"}</button>
         </div>
       </div>
     </div>
