@@ -1,6 +1,12 @@
 import React from "react";
 import { EventsForm } from "./AdminDashboard/EventsForm";
 import { SchemeForm } from "./AdminDashboard/SchemeForm";
+import { CgProfile } from "react-icons/cg";
+import { MdLogout } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { AiOutlineStock } from "react-icons/ai";
+import {FcComboChart} from "react-icons/fc";
+import {MdAttachMoney} from "react-icons/md";
 
 export const AdminDashboard = () => {
   return (
@@ -26,76 +32,114 @@ export const AdminDashboard = () => {
       {/* main */}
       <div className="w-full h-full p-5 flex flex-col bg-white">
         {/* Navbar */}
-        <div className="w-full shadow-md rounded-md shadow-gray-700">
+        <div className="w-full p-3 flex justify-between items-center shadow-md rounded-md shadow-gray-700">
           {/* logo */}
-          <div className="w-16 h-16"></div>
-
-          {/* user data and log out button */}
-          <div className="flex flex-col gap-2">
-
+          <div className="w-[227px]">
+            <img src="/ettarra.png" alt="" />
           </div>
 
+          {/* user data and log out button */}
+          <div className="flex gap-2">
+            <CgProfile className="text-3xl" />
+            <MdLogout className="text-3xl" />
+          </div>
         </div>
 
         {/* Main */}
         <div className="flex h-full flex-col pt-5 gap-10">
           {/* 4 cards */}
           <div className="flex flex-nowrap gap-10">
-            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded"></div>
-            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded"></div>
-            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded"></div>
-            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded"></div>
+            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5">
+              <div className="p-5 bg-blue-100 rounded-full">
+                <FaUsers className="text-3xl text-blue-700" />
+              </div>
+              <div>
+                <p className="text-3xl">62</p>
+                <p className="text-2xl font-semibold">Total Users</p>
+              </div>
+            </div>
+            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5">
+              <div className="p-5 bg-green-100 rounded-full">
+                <AiOutlineStock className="text-3xl text-green-700" />
+              </div>
+              <div>
+                <p className="text-3xl">+7%</p>
+                <p className="text-2xl font-semibold">User Growth</p>
+              </div>
+            </div>
+            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5">
+              <div className="p-5 bg-green-100 rounded-full">
+                <FcComboChart className="text-3xl text-green-700" />
+              </div>
+              <div>
+                <p className="text-3xl">+9%</p>
+                <p className="text-2xl font-semibold">Revenue Growth</p>
+              </div>
+            </div>
+            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5">
+              <div className="p-5 bg-green-100 rounded-full">
+                <MdAttachMoney className="text-3xl text-green-700" />
+              </div>
+              <div>
+                <p className="text-3xl">9000</p>
+                <p className="text-2xl font-semibold">Total Revenue</p>
+              </div>
+            </div>
           </div>
 
           {/* 2 graphs */}
           <div className="h-full w-full flex gap-10">
             <div className="h-full basis-1/4 flex flex-col rounded shadow-md shadow-gray-700 ">
-                <p className="p-3 flex-none text-lg font-semibold">Schemes</p>
-                <div className="grow w-full">
-                  <table className="w-full">
-                    <thead className="w-full">
-                      <tr>
-                        <th>Scheme Name</th>
-                        <th>Scheme Date of Creation</th>
-                      </tr>
-                    </thead>
-                    <tbody className="w-full">
-                      <tr className="">
-                        <td>Scheme 1</td>
-                        <td>Scheme 1</td>
-                      </tr>
-                      <tr>
-                        <td>Scheme 2</td>
-                        <td>Scheme 2</td>
-                      </tr>
-                      </tbody>
-                  </table>
-                </div>
-                <button className="flex-none p-5 border"><EventsForm/></button>
+              <p className="p-3 flex-none text-lg font-semibold">Schemes</p>
+              <div className="grow w-full">
+                <table className="w-full">
+                  <thead className="w-full">
+                    <tr>
+                      <th>Scheme Name</th>
+                      <th>Scheme Date of Creation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="w-full">
+                    <tr className="">
+                      <td>Scheme 1</td>
+                      <td>Scheme 1</td>
+                    </tr>
+                    <tr>
+                      <td>Scheme 2</td>
+                      <td>Scheme 2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button className="flex-none p-5 border">
+                <SchemeForm />
+              </button>
             </div>
             <div className="h-full basis-1/4 flex flex-col rounded shadow-md shadow-gray-700 ">
-                <p className="p-3 flex-none text-lg font-semibold">Schemes</p>
-                <div className="grow w-full">
-                  <table className="w-full">
-                    <thead className="w-full">
-                      <tr>
-                        <th>Events Name</th>
-                        <th>Events Date of Creation</th>
-                      </tr>
-                    </thead>
-                    <tbody className="w-full">
-                      <tr>
-                        <td>Events 1</td>
-                        <td>Events 1</td>
-                      </tr>
-                      <tr>
-                        <td>Events 1</td>
-                        <td>Events 1</td>
-                      </tr>
-                      </tbody>
-                  </table>
-                </div>
-                <button className="flex-none p-5 border"><SchemeForm/></button>
+              <p className="p-3 flex-none text-lg font-semibold">Events</p>
+              <div className="grow w-full">
+                <table className="w-full">
+                  <thead className="w-full border">
+                    <tr>
+                      <th>Events Name</th>
+                      <th>Events Date of Creation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="w-full ">
+                    <tr className="">
+                      <td className="px-5 py-3">Events 1</td>
+                      <td className="px-5 py-3">Events 1</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3">Events 1</td>
+                      <td className="px-5 py-3">Events 1</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button className="flex-none p-5 border">
+                <EventsForm />
+              </button>
             </div>
             <div className="h-full basis-1/2 rounded shadow-md shadow-gray-700 ">
               <p className="p-3 text-lg font-semibold">Statistics</p>
