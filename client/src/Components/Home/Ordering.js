@@ -45,7 +45,7 @@ export const Ordering = () => {
           {menuitem.map((item) => {
             return (
               <div className="basis-full md:basis-1/2 lg:basis-1/3">
-                <Card item={item.data()}/>
+                <Card item={item.data()} cat={cat}/>
               </div>
             );
           }, [])}
