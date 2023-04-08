@@ -17,9 +17,25 @@ export const Ordering = () => {
           <p className="text-sm p-2">Select a category to start your order</p>
         </div>
         <div className="flex flex-wrap">
-          <div className="basis-full flex flex-col gap-3">
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
             <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
             <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
+            <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
+            <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
+            <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
+            <Card />
+          </div>
+          <div className="basis-full md:basis-1/2 lg:basis-1/3">
             <Card />
           </div>
         </div>
