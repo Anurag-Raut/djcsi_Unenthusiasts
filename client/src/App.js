@@ -4,8 +4,8 @@ import { Home } from "./Components/Home";
 
 function App() {
   return (
-    <h1 className="">
-      {false?<Home/>:<Account/>}
+    <h1 className="bg-[#E2C2AA]">
+      {true?<Home/>:<Account/>}
     </h1>
   );
 }
