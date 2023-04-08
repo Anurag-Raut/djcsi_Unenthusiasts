@@ -32,7 +32,9 @@ export const Signup = () => {
             setDoc(doc(database, "users", user.uid), {
                 uid:user.uid,
                 name: data.name,
-                email: data.email
+                email: data.email,
+                amount:0,
+                points:0
               })
               navigate("/")
     

@@ -1,8 +1,36 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
+import { app, database, storage } from "../../firebaseConfig";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+  setDoc,
+  onSnapshot,
+  query,
+  where,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { async } from "@firebase/util";
 
 export const SchemeForm = () => {
+  const [data, setdata] = useState({});
   const customStyles = {
     content: {
       top: "50%",
@@ -30,6 +58,24 @@ export const SchemeForm = () => {
     setIsOpen(false);
   };
 
+  const handleInput = (event) => {
+    let newInput = { [event.target.name]: event.target.value };
+    setdata({ ...data, ...newInput });
+  }
+
+  const handleAddScheme=(e)=>{
+    e.preventDefault()
+    const docRef = addDoc(collection(database, "scheme"), {
+      xamt:parseInt(data.xamt),
+      discount:parseInt(data.discount)
+
+    }).then(()=>{
+      setIsOpen(false);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
+
   return (
     <div>
       <button onClick={openModal}>Add Schemes</button>
@@ -51,24 +97,43 @@ export const SchemeForm = () => {
         >
           <div className="">
             <label
-              htmlFor="name"
+              htmlFor="xamt"
               className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2"
             >
-              Service Name
+              Scheme on X amount
             </label>
             <input
               type="text"
-              id="name"
-              placeholder={"Service 1"}
+              id="xamt"
+              name="xamt"
+              placeholder={"Enter some amount"}
               required
               className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              onChange={(event) => handleInput(event)}
             />
+            <label
+              htmlFor="discount"
+              className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2"
+            >
+              Scheme Discount
+            </label>
+            <textarea
+              type="text"
+              id="discount"
+              name="discount"
+              placeholder={"Discount Offered"}
+              required
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+              onChange={(event) => handleInput(event)}
+            />
+            
           </div>
 
           <div className="flex flex-row-reverse justify-around items-center p-2">
             <button
               type="submit"
               className="bg-green-600 p-2 text-xl rounded-md text-white w-1/4"
+              onClick={handleAddScheme}
             >
               Submit
             </button>
