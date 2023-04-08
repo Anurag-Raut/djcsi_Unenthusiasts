@@ -16,7 +16,7 @@ export const Navbar = () => {
 
         <div className='flex items-center gap-5'>
           {/* <button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>Support</button> */}
-          <button onClick={()=>nav("/bill")} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>{user?.displayName||"Profile"}</button>
+          <button onClick={()=>nav("/bill")} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className='flex items-center gap-1 text-lg'>{user?.displayName||<CgProfile/>}</button>
         </div>
       </div>
     </div>
