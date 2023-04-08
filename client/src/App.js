@@ -5,6 +5,7 @@ import { Signup } from "./Components/Account/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Ordering } from "./Components/Home/Ordering";
 import { Bill } from "./Components/Bill";
+import Temp from "./Components/temp";
 import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 
