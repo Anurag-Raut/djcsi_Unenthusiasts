@@ -3,9 +3,9 @@ import React from "react";
 export const Card = () => {
   return (
     <div className="p-2">
-      <div className="flex p-3 rounded-md shadow hover:shadow-md">
+      <div className="flex p-3 rounded-md shadow hover:shadow-lg">
         <div className="h-24 w-24">
-          <img src="/logo192.png" className="h-24 w-24 rounded-full" alt="logo" />
+          <img src="/logo192.png" className="h-24 w-24 object-contain rounded-full" alt="logo" />
         </div>
         <div className="flex flex-col justify-center items-start gap-1 ml-4">
           <img src="/veg.svg" className="" alt="veg" />
