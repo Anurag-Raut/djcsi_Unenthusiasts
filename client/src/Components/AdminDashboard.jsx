@@ -1,4 +1,5 @@
 import React from "react";
+import { EventsForm } from "./AdminDashboard/EventsForm";
 import { SchemeForm } from "./AdminDashboard/SchemeForm";
 
 export const AdminDashboard = () => {
@@ -48,14 +49,56 @@ export const AdminDashboard = () => {
 
           {/* 2 graphs */}
           <div className="h-full w-full flex gap-10">
-            <div className="h-full basis-1/4 rounded shadow-md shadow-gray-700 ">
-                <p className="p-3 text-lg font-semibold">Schemes</p>
+            <div className="h-full basis-1/4 flex flex-col rounded shadow-md shadow-gray-700 ">
+                <p className="p-3 flex-none text-lg font-semibold">Schemes</p>
+                <div className="grow w-full">
+                  <table className="w-full">
+                    <thead className="w-full">
+                      <tr>
+                        <th>Scheme Name</th>
+                        <th>Scheme Date of Creation</th>
+                      </tr>
+                    </thead>
+                    <tbody className="w-full">
+                      <tr className="">
+                        <td>Scheme 1</td>
+                        <td>Scheme 1</td>
+                      </tr>
+                      <tr>
+                        <td>Scheme 2</td>
+                        <td>Scheme 2</td>
+                      </tr>
+                      </tbody>
+                  </table>
+                </div>
+                <button className="flex-none p-5 border"><EventsForm/></button>
             </div>
-            <div className="h-full basis-1/4 rounded shadow-md shadow-gray-700 ">
-              <p>Events</p>
+            <div className="h-full basis-1/4 flex flex-col rounded shadow-md shadow-gray-700 ">
+                <p className="p-3 flex-none text-lg font-semibold">Schemes</p>
+                <div className="grow w-full">
+                  <table className="w-full">
+                    <thead className="w-full">
+                      <tr>
+                        <th>Events Name</th>
+                        <th>Events Date of Creation</th>
+                      </tr>
+                    </thead>
+                    <tbody className="w-full">
+                      <tr>
+                        <td>Events 1</td>
+                        <td>Events 1</td>
+                      </tr>
+                      <tr>
+                        <td>Events 1</td>
+                        <td>Events 1</td>
+                      </tr>
+                      </tbody>
+                  </table>
+                </div>
+                <button className="flex-none p-5 border"><SchemeForm/></button>
             </div>
             <div className="h-full basis-1/2 rounded shadow-md shadow-gray-700 ">
-              <p>Statistics</p>
+              <p className="p-3 text-lg font-semibold">Statistics</p>
             </div>
           </div>
         </div>
