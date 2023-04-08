@@ -7,13 +7,23 @@ import { async } from '@firebase/util'
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
 
-export const Card = ({ item }) => {
+export const Card = ({ item,cat }) => {
   const auth = getAuth();
   const user = auth.currentUser;
   const [count, setCount] = React.useState(0);
   const [addItem, setAddItem] = React.useState(false);
   
   const handleAdd = async() => {
+    const docRef = collection("leaderboards").doc(cat);
+    if (count === 1) {
+
+      updateDoc(docRef, {
+        // [`cart.${item.name}.quantity`]: count+1,
+        // [`cart.${item.name}.price`]: item.price1,
+        [`cart.${item.name}.quantity`]: count+1,
+      });
+    }
+    
     const oldcount = count;
     setAddItem(true);
     await setCount(count + 1);
@@ -24,7 +34,9 @@ export const Card = ({ item }) => {
 
     updateDoc(doc(database, "users", user.uid), {
       [`cart.${item.name}.quantity`]: count+1,
+      [`cart.${item.name}.price`]: item.price1,
     });
+
   };
 
   // const handleAddItem=async()=>{
