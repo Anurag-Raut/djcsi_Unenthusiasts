@@ -23,10 +23,15 @@ export const Ordering = () => {
       setmenuitem(hacklist.docs);
     })
   }
+  const [itemsAreThere, setItemsAreThere] = React.useState(true);
+
   return (
-    <div>
+    <div className="h-screen flex flex-col overflow-auto">
       <div className="flex justify-between items-center p-2 text-lg">
-        <IoChevronBackOutline />
+        <a href="/">
+          {" "}
+          <IoChevronBackOutline />
+        </a>
         <p>Order</p>
         <AiOutlineSearch />
       </div>
@@ -46,6 +51,15 @@ export const Ordering = () => {
           
         </div>
       </div>
+      {itemsAreThere ? (
+        <div className="w-screen flex justify-center absolute bottom-0 z-50 pb-3 px-3">
+          <div className="rounded-full w-screen shadow-xl bg-[#563300] p-3 text-white flex justify-center">
+            Bottom Bar
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

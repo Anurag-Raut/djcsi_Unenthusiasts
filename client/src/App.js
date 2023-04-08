@@ -2,9 +2,8 @@ import { Account } from "./Components/Account";
 import { Home } from "./Components/Home";
 import { Login } from "./Components/Account/Login";
 import { Signup } from "./Components/Account/Signup";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Ordering } from "./Components/Home/Ordering";
-
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
       </Routes>
     </h1>
     </Router>
-  
   );
 }
 
