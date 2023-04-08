@@ -8,6 +8,7 @@ import { Bill } from "./Components/Bill";
 import Temp from "./Components/temp";
 import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
+import Profile from "./Components/Profile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route element={<Bill />} exact path="/bill" />
           <Route element={<Leaderboard />} exact path="/leaderboard" />
           <Route element={<AdminDashboard />} exact path="/admin" />
+          <Route element={<Profile />} exact path="/profile" />
         </Routes>
       </h1>
     </Router>
