@@ -1,9 +1,11 @@
+import { Account } from "./Components/Account";
+import { Home } from "./Components/Home";
 
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
+    <h1 className="">
+      {false?<Home/>:<Account/>}
     </h1>
   );
 }
