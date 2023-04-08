@@ -1,5 +1,6 @@
 import React from "react";
 import { CategoryButton } from "./CategoryButton";
+import { EventsButton } from "./EventsButton";
 export const Categories = () => {
   const categories = [
     {
@@ -33,10 +34,10 @@ export const Categories = () => {
       <p className="text-2xl font-bold p-2 mx-auto text-[#F2EAF2]">
         Categories
       </p>
-      <div className="grid grid-cols-2 m-auto">
+      <div className=" flex flex-row snap-x snap-mandatory pb-10 scroll-smooth overflow-x-hidden flex-wrap scrollbar-hide md:h-full md:p-5 items-center">
         {categories.map((category) => {
           return (
-            <div className="basis-1/3 md:basis-1/5 p-2">
+            <div className="bg-cover p-3 snap-center w-1/2 md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0">
               <CategoryButton
                 name={category.name}
                 image={category.image}
@@ -45,6 +46,17 @@ export const Categories = () => {
           );
         })}
       </div>
+      <p className="text-2xl font-bold p-2 mx-auto text-[#F2EAF2]">
+        Events
+      </p>
+      <div className=" flex flex-row snap-x text-white snap-mandatory pb-10 scroll-smooth overflow-x-auto flex-nowrap scrollbar-hide md:h-full md:p-5 items-center">
+        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
+        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
+        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
+        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
+        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
+      </div>
+
     </div>
   );
 };
