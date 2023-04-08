@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 
-export const SchemeForm = () => {
+export const EventsForm = () => {
   const customStyles = {
     content: {
       top: "50%",
@@ -32,7 +32,7 @@ export const SchemeForm = () => {
 
   return (
     <div>
-      <button onClick={openModal}>Add Schemes</button>
+      <button onClick={openModal}>Add Events</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -40,9 +40,9 @@ export const SchemeForm = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add Schemes</h2>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add Events</h2>
         <button onClick={closeModal}></button>
-        <div className="text-xl font-bold">Add Schemes</div>
+        <div className="text-xl font-bold">Add Events</div>
         <form
           onSubmit={(e) => {
             closeModal();
@@ -54,7 +54,7 @@ export const SchemeForm = () => {
               htmlFor="name"
               className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2"
             >
-              Service Name
+              Event Name
             </label>
             <input
               type="text"
