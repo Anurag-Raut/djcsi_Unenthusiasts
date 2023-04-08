@@ -32,7 +32,7 @@ export const Bill = () => {
   return (
     <div className="flex min-h-screen flex-col justify-center items-center gap-5">
       <div className="flex flex-col gap-3">
-        <h1 className="px-5 w-screen font-semibold font text-3xl">ETTARRA</h1>
+        <h1 className="px-5 pb-5 w-screen font-semibold font text-3xl"><img src="/ettarra.png" className="w-[226.77px]" alt="" /></h1>
         <div className="px-5 w-screen">
           <div className="bg-white shadow-xl rounded-xl">
             {billItems.map((billItem) => (
