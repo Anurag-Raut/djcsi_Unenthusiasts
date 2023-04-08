@@ -37,7 +37,7 @@ export const Categories = () => {
       <div className=" flex flex-row snap-x snap-mandatory pb-10 scroll-smooth overflow-x-hidden flex-wrap scrollbar-hide md:h-full md:p-5 items-center">
         {categories.map((category) => {
           return (
-            <div className="bg-cover p-3 snap-center w-1/2 md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0">
+            <div className="bg-cover p-3 snap-center w-1/2 md:w-1/3  h-full shadow-md rounded-none flex-shrink-0">
               <CategoryButton
                 name={category.name}
                 image={category.image}
@@ -46,16 +46,7 @@ export const Categories = () => {
           );
         })}
       </div>
-      <p className="text-2xl font-bold p-2 mx-auto text-[#F2EAF2]">
-        Events
-      </p>
-      <div className=" flex flex-row snap-x text-white snap-mandatory pb-10 scroll-smooth overflow-x-auto flex-nowrap scrollbar-hide md:h-full md:p-5 items-center">
-        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
-        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
-        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
-        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
-        <div className="bg-cover p-3 snap-center w-full md:w-1/3 lg:w-1/5 h-full shadow-md rounded-none flex-shrink-0"><EventsButton/></div>
-      </div>
+      
 
     </div>
   );

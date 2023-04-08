@@ -12,7 +12,7 @@ export const CategoryButton = (props) => {
     >
       <div>
         <img
-          className="border-2 border-[#563300] object-contain rounded-full h-[100px] bg-black w-[100px]"
+          className="border-2 border-[#563300] object-contain rounded-full h-[100px] md:h-[150px] md:w-[150px] bg-black w-[100px]"
           src={props.image}
           alt={props.name}
         />
