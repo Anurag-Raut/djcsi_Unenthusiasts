@@ -6,8 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom"; 
 
 export const Login = () => {
-
-    
+    const nav=useNavigate()
   const [data, setdata] = useState({});
   const auth = getAuth();
 
@@ -23,7 +22,7 @@ export const Login = () => {
         signInWithEmailAndPassword(auth, data.email, data.password)
           .then((userCredential) => {
             console.log(userCredential);
-           
+           nav("/")
           })
           .catch((error) => {
             const errorCode = error.code;
