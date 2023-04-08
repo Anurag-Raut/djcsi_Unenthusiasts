@@ -21,7 +21,7 @@ function App() {
           <Route element={<Signup />} exact path="/signup" />
           <Route element={<Ordering />} exact path="/ordering/:cat" />
           <Route element={<Bill />} exact path="/bill" />
-          <Route element={<Leaderboard />} exact path="/leaderboard" />
+          <Route element={<Leaderboard />} exact path="/leaderboard/:cat" />
           <Route element={<AdminDashboard />} exact path="/admin" />
           <Route element={<Profile />} exact path="/profile" />
         </Routes>

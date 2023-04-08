@@ -36,14 +36,15 @@ export const Card = ({ item, cat }) => {
   const [addItem, setAddItem] = React.useState(false);
 
   const handleAdd = async () => {
-    const docRef = collection("leaderboards").doc(cat);
-    if (count === 1) {
-      updateDoc(docRef, {
-        // [`cart.${item.name}.quantity`]: count+1,
-        // [`cart.${item.name}.price`]: item.price1,
-        [`cart.${item.name}.quantity`]: count + 1,
-      });
-    }
+    // const docRef = collection("leaderboards").doc(cat);
+    // if (count === 1) {
+
+    //   updateDoc(docRef, {
+    //     // [`cart.${item.name}.quantity`]: count+1,
+    //     // [`cart.${item.name}.price`]: item.price1,
+    //     [`cart.${item.name}.quantity`]: count+1,
+    //   });
+    // }
 
     const oldcount = count;
     setAddItem(true);
@@ -56,6 +57,9 @@ export const Card = ({ item, cat }) => {
     updateDoc(doc(database, "users", user.uid), {
       [`cart.${item.name}.quantity`]: count + 1,
       [`cart.${item.name}.price`]: item.price1,
+    });
+    updateDoc(doc(database, "leaderboard", cat), {
+      [`board.${user.uid}`]: count + 1,
     });
   };
 
