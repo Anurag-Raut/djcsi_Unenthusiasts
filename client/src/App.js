@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Ordering } from "./Components/Home/Ordering";
 import { Bill } from "./Components/Bill";
 import Temp from "./Components/temp";
+import { Leaderboard } from "./Components/Leaderboard";
+import { AdminDashboard } from "./Components/AdminDashboard";
 
 function App() {
   return (
@@ -16,9 +18,10 @@ function App() {
           <Route element={<Account />} exact path="/account" />
           <Route element={<Login />} exact path="/login" />
           <Route element={<Signup />} exact path="/signup" />
-          <Route element={<Ordering />} exact path="/ordering:cat" />
+          <Route element={<Ordering />} exact path="/ordering/:cat" />
           <Route element={<Bill />} exact path="/bill" />
-          <Route element={<Temp />} exact path="/admin" />
+          <Route element={<Leaderboard />} exact path="/leaderboard" />
+          <Route element={<AdminDashboard />} exact path="/admin" />
         </Routes>
       </h1>
     </Router>
