@@ -1,31 +1,29 @@
 import React from "react";
+import { SchemeForm } from "./AdminDashboard/SchemeForm";
 
 export const AdminDashboard = () => {
   return (
     <div className="h-screen w-screen flex">
       {/* sidebar */}
-      <div className="basis-1/6 p-5">
+      {/* <div className="basis-1/6 p-5">
         <div className="w-full h-full rounded-md shadow-md shadow-slate-600">
-          {/* logo */}
           <div className="p-3 pt-4">
             <img src="/ettarra.png" alt="" />
           </div>
 
-          {/* buttons */}
-          <div className="w-full p-3 flex flex-col gap-3">
-            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
-            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
-            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
-            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
+          <div className="w-full p-3  pt-10 flex flex-col gap-1">
+            <button className="w-full h-12 rounded-md shadow-md border shadow-gray-700 flex items-center justify-center"><SchemeForm/></button>
+            <button className="w-full h-12 rounded-md shadow-md border shadow-gray-700 flex items-center justify-center">abc</button>
+            <button className="w-full h-12 rounded-md shadow-md border shadow-gray-700 flex items-center justify-center">abc</button>
+            <button className="w-full h-12 rounded-md shadow-md border shadow-gray-700 flex items-center justify-center">abc</button>
           </div>
 
-          {/* logout */}
           <div></div>
         </div>
-      </div>
+      </div> */}
 
       {/* main */}
-      <div className="basis-5/6 h-full p-5 flex flex-col bg-white">
+      <div className="w-full h-full p-5 flex flex-col bg-white">
         {/* Navbar */}
         <div className="w-full shadow-md rounded-md shadow-gray-700">
           {/* logo */}
@@ -49,23 +47,16 @@ export const AdminDashboard = () => {
           </div>
 
           {/* 2 graphs */}
-          <div className="h-1/2 w-full flex gap-10">
-            {/* line graph */}
-            <div className="h-full basis-3/5 rounded shadow-md shadow-gray-700 ">
-
+          <div className="h-full w-full flex gap-10">
+            <div className="h-full basis-1/4 rounded shadow-md shadow-gray-700 ">
+                <p className="p-3 text-lg font-semibold">Schemes</p>
             </div>
-
-            {/* pie chart */}
-            <div className="h-full basis-2/5 rounded shadow-md shadow-gray-700 "></div>
-          </div>
-
-          {/* 2 tables */}
-          <div className="h-1/2 w-full flex gap-10">
-            {/* table 1 orders */}
-            <div className="h-full basis-1/2 rounded shadow-md shadow-gray-700 "></div>
-
-            {/* table 2  leaderboard */}
-            <div className="h-full basis-1/2 rounded shadow-md shadow-gray-700 "></div>
+            <div className="h-full basis-1/4 rounded shadow-md shadow-gray-700 ">
+              <p>Events</p>
+            </div>
+            <div className="h-full basis-1/2 rounded shadow-md shadow-gray-700 ">
+              <p>Statistics</p>
+            </div>
           </div>
         </div>
       </div>
