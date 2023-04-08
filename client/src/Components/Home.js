@@ -1,34 +1,9 @@
 import React from 'react'
+import { Categories } from './Home/Categories'
 import { Navbar } from './Home/Navbar'
 
 export const Home = () => {
 
-    const categories = [
-        {
-            name: 'Cold Coffee',
-            image:'',
-        },
-        {
-            name: 'Hot Coffee',
-            image:'',
-        },
-        {
-            name: 'Electronics',
-            image:'',
-        },
-        {
-            name: 'Electronics',
-            image:'',
-        },
-        {
-            name: 'Electronics',
-            image:'',
-        },
-        {
-            name: 'Electronics',
-            image:'',
-        },
-    ]
 
   return (
     <div>
@@ -36,12 +11,7 @@ export const Home = () => {
             <Navbar/>
         </div>
         <div>
-            <div className='flex flex-col'>
-                <p>Categories</p>
-                <div className='gird grid-cols-3 gap-4'>
-
-                </div>
-            </div>
+            <Categories/>
         </div>
     </div>
   )
