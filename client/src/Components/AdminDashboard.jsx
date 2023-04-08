@@ -5,12 +5,19 @@ export const AdminDashboard = () => {
     <div className="h-screen w-screen flex">
       {/* sidebar */}
       <div className="basis-1/6 p-5">
-        <div className="w-full h-full rounded-md shadow-md shadow-black">
+        <div className="w-full h-full rounded-md shadow-md shadow-slate-600">
           {/* logo */}
-          <div></div>
+          <div className="p-3 pt-4">
+            <img src="/ettarra.png" alt="" />
+          </div>
 
-          {/* links */}
-          <div></div>
+          {/* buttons */}
+          <div className="w-full p-3 flex flex-col gap-3">
+            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
+            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
+            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
+            <button className="w-full h-12 rounded-md shadow-md shadow-gray-700 flex items-center justify-center"></button>
+          </div>
 
           {/* logout */}
           <div></div>
