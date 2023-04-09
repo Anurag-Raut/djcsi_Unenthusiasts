@@ -5,9 +5,11 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
 import { collection, addDoc, getDocs, doc, updateDoc,getDoc, deleteDoc, setDoc, onSnapshot, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from '@firebase/util'
+import { Navigate, useNavigate } from "react-router";
 
 export const Bill = () => {
   const [items, setitems] = useState([])
+  const nav=useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
   const [billItems, setbillItems] = useState([])
@@ -104,9 +106,9 @@ export const Bill = () => {
         <div className="px-5 w-screen">
           <div className="bg-white shadow-xl rounded-xl">
             <div className="flex w-full justify-center items-center">
-              <p className="font-semibold text-gray-600 p-3">
+              <button onClick={()=>nav("/coupons")} className="font-semibold text-gray-600 p-3">
                 View coupons {">"}
-              </p>
+              </button>
             </div>
           </div>
         </div>
