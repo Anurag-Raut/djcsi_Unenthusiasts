@@ -34,8 +34,10 @@ import {
 } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from "@firebase/util";
+import { useNavigate } from "react-router";
 
 export const AdminDashboard = () => {
+  const nav=useNavigate()
   const [events, setevents] = useState([]);
   const [scheme, setscheme] = useState([]);
 
@@ -115,7 +117,7 @@ export const AdminDashboard = () => {
                 <p className="text-2xl font-semibold">User Growth</p>
               </div>
             </div>
-            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5">
+            <div className="h-40 basis-1/4 shadow-md shadow-gray-700 rounded flex items-center justify-center gap-5" onClick={()=>{nav("/temp")}}>
               <div className="p-5 bg-green-100 rounded-full">
                 <FcComboChart className="text-3xl text-green-700" />
               </div>
@@ -180,7 +182,7 @@ export const AdminDashboard = () => {
                       <th>Points Reqd</th>
                     </tr>
                   </thead>
-                  <tbody className="w-full h-full overflow-x-scroll object-contain">
+                  <tbody style={{overflow:"scroll",height:'80vh'}} className="w-full overflow-y-scroll object-contain">
                     {events.map((item) => {
                       const item1 = item.data();
                       return (

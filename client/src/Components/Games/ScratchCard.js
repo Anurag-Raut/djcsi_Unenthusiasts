@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ScratchCard from "react-scratchcard";
-
 import cardImage from "./Coffee_Wall_-1.jpg";
 import { app, database, storage } from "../../firebaseConfig";
 import {
@@ -36,24 +35,46 @@ const settings = {
   width: 640,
   height: 480,
   image: cardImage,
-  finishPercent: 50,
+  finishPercent: 60,
   onComplete: () => console.log("The card is now clear!"),
 };
 const ScratchCardComponent = () => (
-  <ScratchCard {...settings}>Congratulations! You WON!</ScratchCard>
+  <ScratchCard {...settings}></ScratchCard>
 );
 
-class Scratchcard extends React.Component {
-  render() {
-    return (
-      <div className="flex flex-col gap-6 justify-center items-center overflow-y-scroll h-full">
-      
-        <h2 className="top-0 p-20 absolute z-0 text-6xl">hEKLOKEFDOWE</h2>
-        <div className="z-50 bottom-0 top-0 absolute">
+const Scratchcard = () => {
+  const [coupid, setcoupid] = useState("")
+  useEffect(() => {
+    getCoups()
+  }, [])
+
+  // const collectionRef = database.collection('scheme');
+  const collectionRef = collection(database, 'scheme')
+
+const getCoups = () => {
+  getDocs(collectionRef)
+    .then((querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      console.log(data);
+      const randomIndex = Math.floor(Math.random() * data.length);
+      setcoupid(data[randomIndex].id)
+
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+  
+  return (
+    <div className="flex flex-col gap-6 justify-center items-center overflow-y-scroll h-full">
+      <h2 className="top-0 p-20 absolute z-0 text-5xl">{coupid}</h2>
+      <div className="z-50 bottom-0 top-0 absolute">
         <ScratchCardComponent />
       </div>
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 export default Scratchcard;

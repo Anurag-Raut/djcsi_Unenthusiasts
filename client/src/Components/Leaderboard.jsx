@@ -7,6 +7,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from '@firebase/util'
 
 export const Leaderboard = () => {
+  const nav=useNavigate()
   const [items, setitems] = useState([])
   const { cat } = useParams()
   useEffect(() => {
@@ -47,8 +48,22 @@ export const Leaderboard = () => {
           <h1 className="px-5 w-full font-semibold font text-3xl text-white p-10">
             Leaderboard
           </h1>
-          <div className="text-white">
-            {cat}
+          <div className="flex flex-row gap-5 ms-6 mb-3">
+          <div className="text-white" onClick={()=>{nav("/leaderboard/hotcoffee");window.location.reload();}}>
+            H0TCOFFEE
+          </div>
+          <div className="text-white" onClick={()=>{nav("/leaderboard/coldcoffee");window.location.reload();}}>
+            COLDCOFFEE 
+          </div>
+          <div className="text-white" onClick={()=>{nav("/leaderboard/notcoffee");window.location.reload();}}>
+            NOTCOFFEE 
+          </div>
+          <div className="text-white" onClick={()=>{nav("/leaderboard/manualbrew");window.location.reload();}}>
+            MANUALBREW 
+          </div>
+          <div className="text-white" onClick={()=>{nav("/leaderboard/coffeecoolers");window.location.reload();}}>
+            COFFEECOOLERS
+          </div>
           </div>
           <div className="px-5 w-full overflow-y-hidden">
             <div className="bg-[#AB877D] overflow-auto shadow-xl rounded-xl">

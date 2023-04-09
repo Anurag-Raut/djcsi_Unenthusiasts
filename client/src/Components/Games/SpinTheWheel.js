@@ -90,7 +90,6 @@ const SpinWheel = () => {
         break;
       case "try again later":
         alert("Sorry, please try again later.");
-        setwheel(false)
         break;
       case "won 30 points":
         setpoints(30)
@@ -126,19 +125,19 @@ const SpinWheel = () => {
 
   return (
       <div className="flex w-screen h-screen justify-center items-center">
-        {wheel&&<WheelComponent
+        <WheelComponent
           segments={segments}
           segColors={segColors}
           onFinished={(winner) => onFinished(winner)}
           primaryColor="black"
           contrastColor="black"
           buttonText="Spin"
-          isOnlyOnce={false}
+          isOnlyOnce={true}
           size={300}
           upDuration={500}
           downDuration={600}
           fontFamily="Arial"
-        />}
+        />
 
       </div>
   );
