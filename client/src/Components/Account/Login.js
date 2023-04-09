@@ -36,7 +36,6 @@ export const Login = () => {
     setdata({ ...data, ...newInput });
   };
 
-<<<<<<< HEAD
     const handleLogin = (e) => {
         e.preventDefault()
         console.log("hello");
@@ -59,22 +58,6 @@ export const Login = () => {
           
           
       }
-=======
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log("hello");
-    signInWithEmailAndPassword(auth, data.email, data.password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        nav("/");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
->>>>>>> b0e412c3467788e84cea301f93e0cb87526f3f1e
   return (
     <div className="w-full h-full pt-6">
       <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20 shadow-2xl rounded-2xl bg-[#dead84] bg-opacity-80 backdrop-blur-md drop-shadow-lg ">

@@ -10,11 +10,8 @@ import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 import Profile from "./Components/Profile";
 import Games from "./Components/Games";
-<<<<<<< HEAD
 import Scratchcard from "./Components/Games/ScratchCard";
-=======
 import { Coupons } from "./Components/Coupons";
->>>>>>> b0e412c3467788e84cea301f93e0cb87526f3f1e
 
 function App() {
   return (
