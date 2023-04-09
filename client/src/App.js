@@ -10,6 +10,7 @@ import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 import Profile from "./Components/Profile";
 import Games from "./Components/Games";
+import Scratchcard from "./Components/Games/ScratchCard";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route element={<Profile />} exact path="/profile" />
           <Route element={<Temp />} exact path="/temp" />
           <Route element={<Games />} exact path="/games" />
+          <Route element={<Scratchcard />} exact path="/scratch" />
         </Routes>
       </h1>
     </Router>

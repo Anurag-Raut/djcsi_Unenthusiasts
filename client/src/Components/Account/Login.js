@@ -21,8 +21,14 @@ export const Login = () => {
         console.log("hello");
         signInWithEmailAndPassword(auth, data.email, data.password)
           .then((userCredential) => {
-            console.log(userCredential);
-           nav("/")
+            
+            console.log(userCredential.user.email);
+            if(userCredential.user.email==="pablo6@gmail.com"){
+              nav("/admin")
+            }
+            else{
+            nav("/")
+            }
           })
           .catch((error) => {
             const errorCode = error.code;
