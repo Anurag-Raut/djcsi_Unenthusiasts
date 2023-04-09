@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom"; 
 
 export const Signup = () => {
+    const navigate=useNavigate()
     const partRef = collection(database, 'users')
     const [data, setdata] = useState({});
     const auth = getAuth();
@@ -33,6 +34,7 @@ export const Signup = () => {
                 name: data.name,
                 email: data.email
               })
+              navigate("/")
     
             
                  

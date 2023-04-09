@@ -9,6 +9,8 @@ import Temp from "./Components/temp";
 import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 import Profile from "./Components/Profile";
+import Games from "./Components/Games";
+
 function App() {
   return (
     <Router>
@@ -25,6 +27,7 @@ function App() {
           <Route element={<Temp />} exact path="/temp" />
           <Route element={<Profile />} exact path="/profile" />
           <Route element={<Temp />} exact path="/temp" />
+          <Route element={<Games />} exact path="/games" />
         </Routes>
       </h1>
     </Router>

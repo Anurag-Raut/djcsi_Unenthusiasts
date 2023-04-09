@@ -7,6 +7,7 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.10.0",
+    "react-scratchcard": "^1.1.2",
     "web3.storage": "^4.4.0"
   }
 }
