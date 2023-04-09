@@ -3,7 +3,7 @@ import React from "react";
 export const People = () => {
   return (
     <div className="flex flex-col gap-3 bg-[#AB877D] rounded-md">
-      <div className="bg-[url('../public/anna.png')] bg-no-repeat bg-contain flex flex-col gap-4 text-white text-center font-black p-4 text-xl ">
+      <div className="bg-[url('../public/anna.png')] bg-no-repeat bg-contain flex flex-col gap-4 text-white text-center md:text-right font-black p-4 text-xl ">
         <p className="text-4xl font-black p-2 mx-auto text-[#F2EAF2]">An’na</p>
         <p>Anna</p>
         <p>[An-nah]</p>
