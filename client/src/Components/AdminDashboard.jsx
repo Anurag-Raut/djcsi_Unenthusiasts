@@ -1,12 +1,12 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { EventsForm } from "./AdminDashboard/EventsForm";
 import { SchemeForm } from "./AdminDashboard/SchemeForm";
 import { CgProfile } from "react-icons/cg";
 import { MdLogout } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { AiOutlineStock } from "react-icons/ai";
-import {FcComboChart} from "react-icons/fc";
-import {MdAttachMoney} from "react-icons/md";
+import { FcComboChart } from "react-icons/fc";
+import { MdAttachMoney } from "react-icons/md";
 import { app, database, storage } from "../firebaseConfig";
 import {
   getAuth,
@@ -36,27 +36,26 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from "@firebase/util";
 
 export const AdminDashboard = () => {
-  const [events, setevents] = useState([])
-  const [scheme, setscheme] = useState([])
+  const [events, setevents] = useState([]);
+  const [scheme, setscheme] = useState([]);
 
   useEffect(() => {
     getEvent();
-    getScheme()
-  }, [])
+    getScheme();
+  }, []);
 
-  const getEvent=async()=>{
+  const getEvent = async () => {
     const collectionRef = collection(database, "events");
     onSnapshot(collectionRef, (hacklist) => {
       setevents(hacklist.docs);
-    })
-  }
-  const getScheme=async()=>{
+    });
+  };
+  const getScheme = async () => {
     const collectionRef = collection(database, "scheme");
     onSnapshot(collectionRef, (hacklist) => {
       setscheme(hacklist.docs);
-    })
-  }
-  
+    });
+  };
 
   return (
     <div className="h-screen w-screen flex">
@@ -144,24 +143,24 @@ export const AdminDashboard = () => {
                 <table className="w-full">
                   <thead className="w-full border">
                     <tr>
-
-                    <th>Coupon code</th>
+                      <th>Coupon code</th>
                       <th>Scheme on Reaching AMT</th>
                       <th>Discount</th>
                     </tr>
                   </thead>
                   <tbody className="w-full">
                     {scheme.map((item) => {
-                      const item1=item.data()
-            return (
-              <tr className="">
-                      <td className="px-5 py-3">{item.id}</td>
-                      <td className="px-5 py-3"> ₹ {item1.xamt}</td>
-                      <td className="px-5 py-3">{item1.discount} % discount</td>
-              </tr>
-            );
-          }, [])}
-                    
+                      const item1 = item.data();
+                      return (
+                        <tr className="">
+                          <td className="px-5 py-3">{item.id}</td>
+                          <td className="px-5 py-3"> ₹ {item1.xamt}</td>
+                          <td className="px-5 py-3">
+                            {item1.discount} % discount
+                          </td>
+                        </tr>
+                      );
+                    }, [])}
                   </tbody>
                 </table>
               </div>
@@ -171,8 +170,8 @@ export const AdminDashboard = () => {
             </div>
             <div className="h-full basis-1/2 flex flex-col rounded shadow-md shadow-gray-700 ">
               <p className="p-3 flex-none text-lg font-semibold">Events</p>
-              <div className="grow w-full">
-                <table className="w-full">
+              <div className="grow h-full w-full">
+                <table className="w-full h-full">
                   <thead className="w-full border">
                     <tr>
                       <th>Events Name</th>
@@ -181,18 +180,18 @@ export const AdminDashboard = () => {
                       <th>Points Reqd</th>
                     </tr>
                   </thead>
-                  <tbody className="w-full ">
+                  <tbody className="w-full h-full overflow-x-scroll object-contain">
                     {events.map((item) => {
-                      const item1=item.data()
-            return (
-              <tr className="">
-                      <td className="px-5 py-3">{item1.name}</td>
-                      <td className="px-5 py-3">{item1.date}</td>
-                      <td className="px-5 py-3">{item1.desc}</td>
-                      <td className="px-5 py-3">{item1.points}</td>
-              </tr>
-            );
-          }, [])}
+                      const item1 = item.data();
+                      return (
+                        <tr className="object-contain">
+                          <td className="px-5 py-3">{item1.name}</td>
+                          <td className="px-5 py-3">{item1.date}</td>
+                          <td className="px-5 py-3">{item1.desc}</td>
+                          <td className="px-5 py-3">{item1.points}</td>
+                        </tr>
+                      );
+                    }, [])}
                   </tbody>
                 </table>
               </div>

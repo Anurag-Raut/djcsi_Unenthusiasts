@@ -10,7 +10,11 @@ import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
 import Profile from "./Components/Profile";
 import Games from "./Components/Games";
+<<<<<<< HEAD
 import Scratchcard from "./Components/Games/ScratchCard";
+=======
+import { Coupons } from "./Components/Coupons";
+>>>>>>> b0e412c3467788e84cea301f93e0cb87526f3f1e
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
           <Route element={<Temp />} exact path="/temp" />
           <Route element={<Games />} exact path="/games" />
           <Route element={<Scratchcard />} exact path="/scratch" />
+          <Route element={<Coupons />} exact path="/coupons" />
         </Routes>
       </h1>
     </Router>
