@@ -8,7 +8,10 @@ import { Bill } from "./Components/Bill";
 import Temp from "./Components/temp";
 import { Leaderboard } from "./Components/Leaderboard";
 import { AdminDashboard } from "./Components/AdminDashboard";
-import Profile from "./Components/Profile";
+import Profile from "../src/Components/Profile/Profile";
+import Games from "./Components/Games";
+import Scratchcard from "./Components/Games/ScratchCard";
+import { Coupons } from "./Components/Coupons";
 
 function App() {
   return (
@@ -25,6 +28,10 @@ function App() {
           <Route element={<AdminDashboard />} exact path="/admin" />
           <Route element={<Temp />} exact path="/temp" />
           <Route element={<Profile />} exact path="/profile" />
+          <Route element={<Temp />} exact path="/temp" />
+          <Route element={<Games />} exact path="/games" />
+          <Route element={<Scratchcard />} exact path="/scratch" />
+          <Route element={<Coupons />} exact path="/coupons" />
         </Routes>
       </h1>
     </Router>

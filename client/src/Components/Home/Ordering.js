@@ -55,7 +55,7 @@ export const Ordering = () => {
       {itemsAreThere ? (
         <div className="w-screen flex justify-center absolute bottom-0 z-50 pb-3 px-3">
           <button onClick={()=>navigate("/bill")} className="rounded-full w-screen shadow-xl bg-[#563300] p-3 text-white flex justify-center">
-            Bottom Bar
+           Go TO Cart
           </button>
         </div>
       ) : (

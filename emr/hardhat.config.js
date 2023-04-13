@@ -2,11 +2,11 @@
 module.exports = {
   solidity: {
     version: '0.8.9',
-    defaultNetwoks:'goerli',
+    defaultNetwoks:'mumbai',
     networks:{
       hardhat:{},
-      goerli:{
-        url:'https://rpc.ankr.com/eth_goerli',
+      mumbai:{
+        url:'https://mumbai.rpc.thirdweb.com',
         accounts:[`0x${process.env.PRIVATE_KEY}`]
 
 

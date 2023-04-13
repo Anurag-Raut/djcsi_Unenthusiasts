@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Row } from "./Bill/Row";
 import { app, database, storage } from '../firebaseConfig'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
-import { collection, addDoc, getDocs, doc, updateDoc,getDoc, deleteDoc, setDoc, onSnapshot, query, where, arrayUnion, arrayRemove } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, updateDoc,getDoc, deleteDoc, setDoc, onSnapshot, query, where, arrayUnion, arrayRemove,increment } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from '@firebase/util'
 import { useStateContext } from "../context/ind";
+import { useNavigate } from "react-router";
 
 export const Bill = () => {
+  const nav=useNavigate();
+
   const [items, setitems] = useState([])
   const {connect,address,buypoints}=useStateContext();
-  console.log(address);
+  
   const auth = getAuth();
   const user = auth.currentUser;
+  // console.log(user.uid);
   const [billItems, setbillItems] = useState([])
-
+  console.log(address,'grgs');
   useEffect(() => {
     getCartitems();
   }, [])
@@ -144,11 +148,31 @@ export const Bill = () => {
               </p>
             </div>
           </div>
-          <button onClick={connect} className="px-5 bg-white rounded " >
-              connect
+          <button onClick={connect} className="px-5 py-3 mt-3 mr-3 bg-white rounded " >
+              Connect
           </button>
-          <button onClick={()=>buypoints(total)} className="px-5 bg-white rounded " >
-              buy
+          <button onClick={()=>buypoints(total).then(()=>{
+            // getDoc((),{
+
+            // })
+            
+            nav('/games');
+            updateDoc(doc(database, "users", user.uid), {
+              cart:{},
+              amount: increment(total),
+              amount: increment(Math.ceil(total*(30/100)) ),
+             
+            }).then(()=>{
+              
+            }); 
+          
+            
+
+          })
+          
+          
+          } className="px-5 py-3 mt-3 ml-3 bg-white rounded " >
+              Buy
           </button>
         </div>
       </div>

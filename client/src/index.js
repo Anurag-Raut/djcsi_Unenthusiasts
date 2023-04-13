@@ -20,7 +20,7 @@ import { StateContextProvider } from "./context/ind";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThirdwebProvider desiredChainId={ChainId.Goerli}>
+  <ThirdwebProvider >
      
      <StateContextProvider>
       

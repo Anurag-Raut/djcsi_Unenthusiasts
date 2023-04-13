@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from 'react';
 
-import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
+import { useAddress, useContract, useMetamask, useContractWrite,useMintNFT  } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
 
 
@@ -8,16 +8,22 @@ import { ethers } from 'ethers';
 
 const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
- 
+  var eg="sgsdfsf";
     const address = useAddress();
+    
     const connect = useMetamask();
-    const { contract } = useContract("0xBd9D3932beE85535c707Dc0cCE2e5cE21963a6a1");
-    const { passcontract } = useContract("0x81d724815Ca19F7CCb643c51533B0BF647257b84");
-    const { mutateAsync: addPatient } = useContractWrite(contract, 'addBook');
-    const { mutateAsync: buyPoints, isLoading } = useContractWrite(contract, "buyPoints")
+    // const { contract } = useContract("0xBd9D3932beE85535c707Dc0cCE2e5cE21963a6a1");
+    const { contract } = useContract("0xf050ED9d5509F3599D51D7212FC669584a3bf4Ce");
+    const { mutateAsync: mintNFT } = useContractWrite(contract,'minto');
+    const { mutateAsync: burnnft } = useContractWrite(contract,'burn');
+    // const { mutateAsync: gettoken } = useContractWrite(contract,'getUserTokens');
+
+
     // const { mutateAsync: addPatient } = useContractWrite(contract, 'addBook');
 
     // const { mutateAsync: delPatient } = useContractWrite(contract, 'delPatient');
+
+   
     const Buypoints= async(price)=>{
         try {
           console.log(price)
@@ -30,14 +36,30 @@ export const StateContextProvider = ({ children }) => {
           
         
     }
-    const mintnft=async ()=>{
-        await passcontract.call('mint',address );
+    const mintNft=async (eventid)=>{
+      try{
+        console.log(contract);
+       await mintNFT([eventid]);
+      
+        //  await contract.call("minto", [eg])
+
+      }
+      catch{
+
+      }
+    
 
     }
-    const burnnft=async (tokenid)=>{
-        await passcontract.call('burn',tokenid );
+   
+    const BurnNft=async (tokenid,e)=>{
+        await burnnft([tokenid,e]);
 
     }
+    const gettokens=async()=>{
+      const array = await contract?.call('getUserTokens',address);
+      return array;
+    }
+   
 
 
     // const AddPatient=async ()=>{
@@ -81,8 +103,9 @@ export const StateContextProvider = ({ children }) => {
         
             
             buypoints:Buypoints,
-            burnnft:burnnft,
-            mintnft:mintnft,
+            burnnft:BurnNft,
+            mintnft:mintNft,
+            gettokens:gettokens
 
            
            

@@ -83,13 +83,13 @@ export const Card = ({ item, cat }) => {
       <div className="flex p-3 rounded-md bg-white shadow-lg hover:shadow-sm">
         <div className="h-24 w-24">
           <img
-            src="/logo192.png"
+            src="https://th.bing.com/th/id/OIP._amtVrnWIHD-wQXNk2kxKQHaLH?pid=ImgDet&rs=1"
             className="h-24 w-24 object-contain rounded-full"
             alt="logo"
           />
         </div>
         <div className="flex flex-col justify-center items-start gap-1 ml-4">
-          <img src="/veg.svg" className="" alt="veg" />
+          
           <p className="text-sm font-semibold">{item.name}</p>
           <p className="text-sm font-mono font-semibold text-gray-500">
             Size and kcal
